@@ -46,7 +46,7 @@ bool is_valid(double value, string operation)
 }
 
 // algorithm methods
-MSS max_intersection(vector<double> arr, int l, int r, int m)
+MSS max_intersection(vector<double> arr, int l, int m, int r)
 {
     double sum = 0;
     double left_sum = MIN;
