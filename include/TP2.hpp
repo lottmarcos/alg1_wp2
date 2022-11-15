@@ -26,5 +26,5 @@ double max(double a, double b, double c);
 bool is_valid(double value, string operation);
 
 // algorithm methods
-MSS max_crossing_sum(vector<double> arr, int l, int m, int h);
-MSS max_subarray_sum(vector<double> arr, int l, int r);
+MSS max_intersection(vector<double> arr, int l, int m, int h);
+MSS max_subarray(vector<double> arr, int l, int r);

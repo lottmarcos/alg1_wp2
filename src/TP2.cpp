@@ -46,7 +46,7 @@ bool is_valid(double value, string operation)
 }
 
 // algorithm methods
-MSS max_crossing_sum(vector<double> arr, int l, int m, int h)
+MSS max_intersection(vector<double> arr, int l, int r, int m)
 {
     double sum = 0;
     double left_sum = MIN;
@@ -64,7 +64,7 @@ MSS max_crossing_sum(vector<double> arr, int l, int m, int h)
     sum = 0;
     double right_sum = MIN;
     int right = m;
-    for (int i = m; i <= h; i++)
+    for (int i = m; i <= r; i++)
     {
         sum = sum + arr[i];
         if (sum >= right_sum)
@@ -86,7 +86,7 @@ MSS max_crossing_sum(vector<double> arr, int l, int m, int h)
 
     return shows;
 }
-MSS max_subarray_sum(vector<double> arr, int l, int r)
+MSS max_subarray(vector<double> arr, int l, int r)
 {
     if (l >= r)
     {
@@ -102,9 +102,9 @@ MSS max_subarray_sum(vector<double> arr, int l, int r)
 
     int mid_index = (l + r) / 2;
 
-    MSS left = max_subarray_sum(arr, l, mid_index - 1);
-    MSS right = max_subarray_sum(arr, mid_index + 1, r);
-    MSS middle = max_crossing_sum(arr, l, mid_index, r);
+    MSS left = max_subarray(arr, l, mid_index - 1);
+    MSS right = max_subarray(arr, mid_index + 1, r);
+    MSS middle = max_intersection(arr, l, mid_index, r);
     double bigger = max(middle.sum, left.sum, right.sum);
 
     if (bigger == middle.sum)

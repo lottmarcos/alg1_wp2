@@ -36,7 +36,7 @@ int main()
     }
 
     // run maximum subarray sum algorithm
-    MSS max_sum = max_subarray_sum(rates, 0, (rates.size()) - 1);
+    MSS max_sum = max_subarray(rates, 0, (rates.size()) - 1);
 
     // print results
     cout << (max_sum.left + 1) << " " << (max_sum.right + 1) << endl;
