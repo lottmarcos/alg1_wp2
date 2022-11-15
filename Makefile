@@ -19,7 +19,3 @@ $(OBJ_FOLDER)%.o: $(SRC_FOLDER)%.cpp
 
 all: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(TARGET) $(OBJ)
-
-clean: 
-	@rm -rf $(OBJ_FOLDER)*
-	clear
