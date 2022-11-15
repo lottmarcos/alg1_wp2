@@ -5,13 +5,13 @@ using namespace std;
 #define MIN -99999
 
 // building methods
-SSM::SSM()
+MSS::MSS()
 {
     left = 0;
     right = 0;
     sum = 0;
 }
-SSM::SSM(int l, int r, double s)
+MSS::MSS(int l, int r, double s)
 {
     left = l;
     right = r;
@@ -46,7 +46,7 @@ bool is_valid(double value, string operation)
 }
 
 // algorithm methods
-SSM max_crossing_sum(vector<double> arr, int l, int m, int h)
+MSS max_crossing_sum(vector<double> arr, int l, int m, int h)
 {
     double sum = 0;
     double left_sum = MIN;
@@ -76,7 +76,7 @@ SSM max_crossing_sum(vector<double> arr, int l, int m, int h)
 
     double middle_sum = left_sum + right_sum - arr[m];
     double bigger = max(middle_sum, left_sum, right_sum);
-    SSM shows;
+    MSS shows;
     if (bigger == middle_sum)
         shows = {left, right, middle_sum};
     else if (bigger == left_sum)
@@ -86,25 +86,25 @@ SSM max_crossing_sum(vector<double> arr, int l, int m, int h)
 
     return shows;
 }
-SSM max_subarray_sum(vector<double> arr, int l, int r)
+MSS max_subarray_sum(vector<double> arr, int l, int r)
 {
     if (l >= r)
     {
-        SSM show(l, r, MIN);
+        MSS show(l, r, MIN);
         return show;
     }
 
     if (l == r)
     {
-        SSM show(l, r, arr[l]);
+        MSS show(l, r, arr[l]);
         return show;
     }
 
     int mid_index = (l + r) / 2;
 
-    SSM left = max_subarray_sum(arr, l, mid_index - 1);
-    SSM right = max_subarray_sum(arr, mid_index + 1, r);
-    SSM middle = max_crossing_sum(arr, l, mid_index, r);
+    MSS left = max_subarray_sum(arr, l, mid_index - 1);
+    MSS right = max_subarray_sum(arr, mid_index + 1, r);
+    MSS middle = max_crossing_sum(arr, l, mid_index, r);
     double bigger = max(middle.sum, left.sum, right.sum);
 
     if (bigger == middle.sum)

@@ -35,8 +35,8 @@ int main()
       }
     }
 
-    // run kadane algorithm
-    SSM max_sum = max_subarray_sum(rates, 0, (rates.size()) - 1);
+    // run maximum subarray sum algorithm
+    MSS max_sum = max_subarray_sum(rates, 0, (rates.size()) - 1);
 
     // print results
     cout << (max_sum.left + 1) << " " << (max_sum.right + 1) << endl;
